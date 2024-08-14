@@ -23,7 +23,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public boolean isContactPresent() {
-        return manager.isElementPresent(By.name("selected[]"));
+        return isElementPresent(By.name("selected[]"));
     }
 
     private void selectContact() {
@@ -35,8 +35,7 @@ public class ContactHelper extends HelperBase {
     }
 
     private void initContactCreation() {
-        //click(By.linkText("add new"));
-        click(By.xpath("//a[text()=\"add new\"]"));
+        click(By.linkText("add new"));
     }
 
     private void fillContactForm(ContactData contact) {
@@ -51,6 +50,6 @@ public class ContactHelper extends HelperBase {
 
     private void openHomePage() {
         click(By.linkText("home"));
+        timeout(1);
     }
-
 }
