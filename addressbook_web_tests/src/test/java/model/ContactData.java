@@ -1,19 +1,46 @@
 package model;
 
-public record ContactData(String lastName, String firstName, String address) {
+public record ContactData(String lastName,
+                          String middleName,
+                          String firstName,
+                          String address,
+                          String nickname,
+                          String title,
+                          String company,
+                          String homePhone,
+                          String mobilePhone,
+                          String workPhone,
+                          String fax,
+                          String email,
+                          String email2,
+                          String email3,
+                          String homepage,
+                          String birthday,
+                          String anniversary,
+                          String group) {
+
     public ContactData() {
-        this("", "", "");
+        this("", "", "", "", "", "", "", "", "", "", "", "", "", "", "","", "", "");
     }
 
-    public ContactData withLastName(String lastName) {
-        return new ContactData(lastName, this.firstName, this.address);
-    }
-
-    public ContactData withFirstName(String firstName) {
-        return new ContactData(this.lastName, firstName, this.address);
-    }
-
-    public ContactData withAddress(String address) {
-        return new ContactData(this.lastName, this.firstName, address);
+    public ContactData withEssentialFields(String lastName, String firstName, String address) {
+        return new ContactData(lastName,
+                this.middleName,
+                firstName,
+                address,
+                this.nickname,
+                this.title,
+                this.company,
+                this.homePhone,
+                this.mobilePhone,
+                this.workPhone,
+                this.fax,
+                this.email,
+                this.email2,
+                this.email3,
+                this.homepage,
+                this.birthday,
+                this.anniversary,
+                this.group);
     }
 }

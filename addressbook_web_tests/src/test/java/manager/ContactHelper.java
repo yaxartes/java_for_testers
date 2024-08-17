@@ -11,9 +11,8 @@ public class ContactHelper extends HelperBase {
     public void createContact(ContactData contact) {
         openHomePage();
         initContactCreation();
-        fillContactForm(contact);
+        fillContactFormEssential(contact);
         submitContactCreation();
-        //returnToHomePage();
     }
 
     public void removeContact() {
@@ -38,7 +37,7 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("add new"));
     }
 
-    private void fillContactForm(ContactData contact) {
+    private void fillContactFormEssential(ContactData contact) {
         type(By.name("firstname"), contact.firstName());
         type(By.name("lastname"), contact.lastName());
         type(By.name("address"), contact.address());
