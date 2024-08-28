@@ -11,7 +11,8 @@ public class ContactRemovalTests extends TestBase {
   @Test
   public void canRemoveContact() {
     if (app.contacts().getCount() == 0) {
-      app.contacts().createContact(new ContactData().withEssentialFields("Ivanov", "Ivan", "Default Address"));
+      app.contacts().createContact(new ContactData()
+              .withEssentialFields(randomString(20), randomString(20), randomString(20)));
     }
     var oldContactList = app.contacts().getList();
     var rnd = new Random();
