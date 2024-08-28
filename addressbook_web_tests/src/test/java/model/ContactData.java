@@ -43,4 +43,40 @@ public record ContactData(String lastName,
                 this.anniversary,
                 this.group);
     }
+
+    public ContactData withTextFields(String lastName,
+                                      String middleName,
+                                      String firstName,
+                                      String address,
+                                      String nickname,
+                                      String title,
+                                      String company,
+                                      String homePhone,
+                                      String mobilePhone,
+                                      String workPhone,
+                                      String fax,
+                                      String email,
+                                      String email2,
+                                      String email3,
+                                      String homepage) {
+        return new ContactData(
+                lastName,
+                middleName,
+                firstName,
+                address,
+                nickname,
+                title,
+                company,
+                homePhone,
+                mobilePhone,
+                workPhone,
+                fax,
+                email,
+                email2,
+                email3,
+                homepage,
+                this.birthday,
+                this.anniversary,
+                this.group);
+    }
 }

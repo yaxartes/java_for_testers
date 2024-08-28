@@ -24,4 +24,17 @@ public class TestBase {
         }
         return result;
     }
+
+    public static String randomPhone(int n) {
+        var rnd = new Random();
+        var result = "";
+        if (n != 0) {
+            result = result + "+7";
+
+            for (int i = 0; i < 10; i++) {
+                result = result + (char) ('1' + rnd.nextInt(9));
+            }
+        }
+        return result;
+    }
 }
