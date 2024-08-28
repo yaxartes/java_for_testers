@@ -1,6 +1,7 @@
 package model;
 
-public record ContactData(String lastName,
+public record ContactData(String id,
+                          String lastName,
                           String middleName,
                           String firstName,
                           String address,
@@ -20,11 +21,13 @@ public record ContactData(String lastName,
                           String group) {
 
     public ContactData() {
-        this("", "", "", "", "", "", "", "", "", "", "", "", "", "", "","", "", "");
+        this("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "","", "", "");
     }
 
     public ContactData withEssentialFields(String lastName, String firstName, String address) {
-        return new ContactData(lastName,
+        return new ContactData(
+                this.id,
+                lastName,
                 this.middleName,
                 firstName,
                 address,
@@ -60,6 +63,7 @@ public record ContactData(String lastName,
                                       String email3,
                                       String homepage) {
         return new ContactData(
+                this.id,
                 lastName,
                 middleName,
                 firstName,
@@ -75,6 +79,29 @@ public record ContactData(String lastName,
                 email2,
                 email3,
                 homepage,
+                this.birthday,
+                this.anniversary,
+                this.group);
+    }
+
+    public ContactData withId(String id) {
+        return new ContactData(
+                id,
+                this.lastName,
+                this.middleName,
+                this.firstName,
+                this.address,
+                this.nickname,
+                this.title,
+                this.company,
+                this.homePhone,
+                this.mobilePhone,
+                this.workPhone,
+                this.fax,
+                this.email,
+                this.email2,
+                this.email3,
+                this.homepage,
                 this.birthday,
                 this.anniversary,
                 this.group);

@@ -1,7 +1,11 @@
 package manager;
 
 import model.ContactData;
+import model.GroupData;
 import org.openqa.selenium.By;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
     public ContactHelper(ApplicationManager manager) {
@@ -15,14 +19,10 @@ public class ContactHelper extends HelperBase {
         submitContactCreation();
     }
 
-    public void removeContact() {
+    public void removeContact(ContactData contact) {
         openHomePage();
-        selectContact();
+        selectContact(contact);
         deleteSelectedContact();
-    }
-
-    public boolean isContactPresent() {
-        return isElementPresent(By.name("selected[]"));
     }
 
     public int getCount() {
@@ -30,8 +30,8 @@ public class ContactHelper extends HelperBase {
         return manager.driver.findElements(By.name("selected[]")).size();
     }
 
-    private void selectContact() {
-        click(By.xpath("(//input[@name=\"selected[]\"])[1]"));
+    private void selectContact(ContactData contact) {
+        click(By.cssSelector(String.format("input[value='%s']", contact.id())));
     }
 
     private void deleteSelectedContact() {
@@ -67,5 +67,26 @@ public class ContactHelper extends HelperBase {
     private void openHomePage() {
         click(By.linkText("home"));
         timeout(1);
+    }
+
+    public List<ContactData> getList() {
+        openHomePage();
+        var contacts = new ArrayList<ContactData>();
+        var spans = manager.driver.findElements(By.xpath("//tr[@name=\"entry\"]"));
+        for (var span : spans) {
+            var text = span.getText().split(" ");
+            var lastName = "";
+            var firstName = "";
+            var address = "";
+            if (text.length > 1) {
+                lastName = text[0];
+                firstName = text[1];
+                address = text[2];
+            }
+            var checkbox = span.findElement(By.name("selected[]"));
+            var id = checkbox.getAttribute("value");
+            contacts.add(new ContactData().withId(id).withEssentialFields(lastName, firstName, address));
+        }
+        return contacts;
     }
 }
