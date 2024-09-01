@@ -18,10 +18,11 @@ public record ContactData(String id,
                           String homepage,
                           String birthday,
                           String anniversary,
-                          String group) {
+                          String group,
+                          String photo) {
 
     public ContactData() {
-        this("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "","", "", "");
+        this("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "","", "", "", "");
     }
 
     public ContactData withEssentialFields(String lastName, String firstName, String address) {
@@ -44,7 +45,8 @@ public record ContactData(String id,
                 this.homepage,
                 this.birthday,
                 this.anniversary,
-                this.group);
+                this.group,
+                this.photo);
     }
 
     public ContactData withTextFields(String lastName,
@@ -81,7 +83,8 @@ public record ContactData(String id,
                 homepage,
                 this.birthday,
                 this.anniversary,
-                this.group);
+                this.group,
+                this.photo);
     }
 
     public ContactData withId(String id) {
@@ -104,6 +107,31 @@ public record ContactData(String id,
                 this.homepage,
                 this.birthday,
                 this.anniversary,
-                this.group);
+                this.group,
+                this.photo);
+    }
+
+    public ContactData withPhoto(String photo) {
+        return new ContactData(
+                this.id,
+                this.lastName,
+                this.middleName,
+                this.firstName,
+                this.address,
+                this.nickname,
+                this.title,
+                this.company,
+                this.homePhone,
+                this.mobilePhone,
+                this.workPhone,
+                this.fax,
+                this.email,
+                this.email2,
+                this.email3,
+                this.homepage,
+                this.birthday,
+                this.anniversary,
+                this.group,
+                photo);
     }
 }

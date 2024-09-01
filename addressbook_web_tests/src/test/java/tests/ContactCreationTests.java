@@ -18,7 +18,7 @@ public class ContactCreationTests extends TestBase {
               randomString(i * 10),
               randomString(i * 10),
               randomString(i * 10)
-              ));
+              ).withPhoto("src/test/resources/images/avatar.png"));
     }
     return result;
   }
@@ -36,7 +36,7 @@ public class ContactCreationTests extends TestBase {
     newContactList.sort(compareById);
 
     var expectedContactList = new ArrayList<>(oldContactList);
-    expectedContactList.add(contact.withId(newContactList.get(newContactList.size() - 1).id()));
+    expectedContactList.add(contact.withId(newContactList.get(newContactList.size() - 1).id()).withPhoto(""));
     expectedContactList.sort(compareById);
 
     Assertions.assertEquals(newContactList, expectedContactList);

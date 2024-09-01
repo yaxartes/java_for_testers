@@ -3,6 +3,7 @@ package manager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 
+import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 public class HelperBase {
@@ -33,5 +34,9 @@ public class HelperBase {
         } catch (NoSuchElementException e) {
             return false;
         }
+    }
+
+    protected void attach(By locator, String file) {
+        manager.driver.findElement(locator).sendKeys(Paths.get(file).toAbsolutePath().toString());
     }
 }
