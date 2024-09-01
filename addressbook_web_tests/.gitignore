@@ -8,6 +8,7 @@
 .DS_Store
 groups.json
 groups.yaml
+groups.xml
 **.iml
 
 # Ignore Gradle GUI config
