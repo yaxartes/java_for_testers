@@ -6,14 +6,27 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class ContactCreationTests extends ru.stqa.addressbook.tests.TestBase {
 
-  public static List<ContactData> contactProvider() {
+  public static List<ContactData> contactProvider() throws IOException {
     var result = new ArrayList<ContactData>();
+    var json = "";
+    try (var reader = new FileReader("contacts.json");
+         var breader = new BufferedReader(reader)
+    ) {
+      var line = breader.readLine();
+      while (line != null) {
+        json = json + line;
+        line = breader.readLine();
+      }
+    }
     for (int i = 0; i < 4; i++) {
       result.add(new ContactData().withEssentialFields(
               Common.randomString(i * 10),

@@ -2,15 +2,11 @@ package ru.stqa.addressbook.tests;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import ru.stqa.addressbook.common.Common;
-import ru.stqa.addressbook.model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import ru.stqa.addressbook.model.GroupData;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -21,7 +17,6 @@ import java.util.List;
 public class GroupCreationTests extends TestBase {
     public static List<GroupData> groupProvider() throws IOException {
         var result = new ArrayList<GroupData>();
-        /*
         for (var name : List.of("", "group name")) {
             for (var header : List.of("", "group header")) {
                 for (var footer : List.of("", "group footer")) {
@@ -29,18 +24,8 @@ public class GroupCreationTests extends TestBase {
                 }
             }
         }
-         */
-        var json = "";
-        try (var reader = new FileReader("groups.json");
-            var breader = new BufferedReader(reader)
-        ) {
-            var line = breader.readLine();
-            while (line != null) {
-                json = json + line;
-                line = breader.readLine();
-            }
-        }
-        //var json = Files.readString(Paths.get("groups.json"));
+
+        var json = Files.readString(Paths.get("groups.json"));
         ObjectMapper mapper = new ObjectMapper();
         var value = mapper.readValue(json, new TypeReference<List<GroupData>>() {});
         result.addAll(value);
@@ -48,9 +33,7 @@ public class GroupCreationTests extends TestBase {
     }
 
     public static List<GroupData> negativeGroupProvider() {
-        var result = new ArrayList<GroupData>(List.of(
-                new GroupData().withName("group name'")));
-        return  result;
+        return new ArrayList<>(List.of(new GroupData().withName("group name'")));
     }
 
     @ParameterizedTest
