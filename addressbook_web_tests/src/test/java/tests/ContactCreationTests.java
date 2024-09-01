@@ -18,7 +18,7 @@ public class ContactCreationTests extends TestBase {
               randomString(i * 10),
               randomString(i * 10),
               randomString(i * 10)
-              ).withPhoto("src/test/resources/images/avatar.png"));
+              ).withPhoto(randomFile("src/test/resources/images")));
     }
     return result;
   }
