@@ -4,6 +4,8 @@
 **/build/
 !src/**/build/
 **/out/
+.DS_Store
+groups.json
 
 # Ignore Gradle GUI config
 gradle-app.setting

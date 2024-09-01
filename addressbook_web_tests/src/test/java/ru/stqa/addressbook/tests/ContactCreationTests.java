@@ -1,6 +1,7 @@
-package tests;
+package ru.stqa.addressbook.tests;
 
-import model.ContactData;
+import ru.stqa.addressbook.common.Common;
+import ru.stqa.addressbook.model.ContactData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,16 +10,16 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class ContactCreationTests extends TestBase {
+public class ContactCreationTests extends ru.stqa.addressbook.tests.TestBase {
 
   public static List<ContactData> contactProvider() {
     var result = new ArrayList<ContactData>();
     for (int i = 0; i < 4; i++) {
       result.add(new ContactData().withEssentialFields(
-              randomString(i * 10),
-              randomString(i * 10),
-              randomString(i * 10)
-              ).withPhoto(randomFile("src/test/resources/images")));
+              Common.randomString(i * 10),
+              Common.randomString(i * 10),
+              Common.randomString(i * 10)
+              ).withPhoto(Common.randomFile("src/test/resources/images")));
     }
     return result;
   }

@@ -1,6 +1,7 @@
-package tests;
+package ru.stqa.addressbook.tests;
 
-import model.ContactData;
+import ru.stqa.addressbook.common.Common;
+import ru.stqa.addressbook.model.ContactData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -14,14 +15,18 @@ public class ContactModificationTests extends TestBase {
     void canModifyContact() {
         if (app.contacts().getCount() == 0) {
             app.contacts().createContact(new ContactData()
-                    .withEssentialFields(randomString(20), randomString(20), randomString(20)));
+                    .withEssentialFields(Common.randomString(20),
+                            Common.randomString(20),
+                            Common.randomString(20)));
         }
 
         var oldContactList = app.contacts().getList();
         var rnd = new Random();
         var index = rnd.nextInt(oldContactList.size());
         var testData = new ContactData()
-                .withEssentialFields(randomString(5), randomString(5), randomString(5));
+                .withEssentialFields(Common.randomString(5),
+                        Common.randomString(5),
+                        Common.randomString(5));
 
         app.contacts().modifyContact(oldContactList.get(index), testData);
 

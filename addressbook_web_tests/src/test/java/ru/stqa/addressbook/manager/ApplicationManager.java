@@ -1,4 +1,4 @@
-package manager;
+package ru.stqa.addressbook.manager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
