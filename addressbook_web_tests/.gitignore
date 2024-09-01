@@ -1,11 +1,14 @@
 .gradle
 .idea
 .idea/**
+**/.idea/
 **/build/
 !src/**/build/
 **/out/
 .DS_Store
 groups.json
+groups.yaml
+**.iml
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -24,4 +27,4 @@ gradle-app.setting
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
-.iml
+
