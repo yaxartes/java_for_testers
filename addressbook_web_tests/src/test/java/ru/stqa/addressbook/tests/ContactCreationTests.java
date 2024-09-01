@@ -1,10 +1,11 @@
 package ru.stqa.addressbook.tests;
 
-import ru.stqa.addressbook.common.Common;
-import ru.stqa.addressbook.model.ContactData;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import ru.stqa.addressbook.model.ContactData;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -27,13 +28,9 @@ public class ContactCreationTests extends ru.stqa.addressbook.tests.TestBase {
         line = breader.readLine();
       }
     }
-    for (int i = 0; i < 4; i++) {
-      result.add(new ContactData().withEssentialFields(
-              Common.randomString(i * 10),
-              Common.randomString(i * 10),
-              Common.randomString(i * 10)
-              ).withPhoto(Common.randomFile("src/test/resources/images")));
-    }
+    ObjectMapper mapper = new ObjectMapper();
+    var value = mapper.readValue(json, new TypeReference<List<ContactData>>() {});
+    result.addAll(value);
     return result;
   }
 
