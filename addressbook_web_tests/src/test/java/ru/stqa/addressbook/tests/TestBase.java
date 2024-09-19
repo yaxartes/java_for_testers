@@ -1,9 +1,8 @@
 package ru.stqa.addressbook.tests;
 
-import ru.stqa.addressbook.manager.ApplicationManager;
 import org.junit.jupiter.api.BeforeEach;
+import ru.stqa.addressbook.manager.ApplicationManager;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
