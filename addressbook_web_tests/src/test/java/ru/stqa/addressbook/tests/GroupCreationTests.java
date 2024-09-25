@@ -62,17 +62,15 @@ public class GroupCreationTests extends TestBase {
         expectedList.sort(compareById);
 
         Assertions.assertEquals(newGroups, expectedList);
-
-        //var newUIGroups = app.groups().getList();
     }
 
     @ParameterizedTest
     @MethodSource("negativeGroupProvider")
     public void cannotCreateGroup(GroupData group) {
-        var oldGroups = app.groups().getList();
+        var oldGroups = app.hbm().getGroupList();
         app.groups().createGroup(group);
 
-        var newGroups = app.groups().getList();
+        var newGroups = app.hbm().getGroupList();
         Assertions.assertEquals(newGroups, oldGroups);
     }
 }

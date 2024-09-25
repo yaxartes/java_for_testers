@@ -76,6 +76,24 @@ public class ContactHelper extends HelperBase {
         attach(By.name("photo"), contact.photo());
     }
 
+    private void fillContactFormWithoutPhoto(ContactData contact) {
+        type(By.name("firstname"), contact.firstName());
+        type(By.name("lastname"), contact.lastName());
+        type(By.name("address"), contact.address());
+        type(By.name("middlename"), contact.middleName());
+        type(By.name("nickname"), contact.nickname());
+        type(By.name("title"), contact.title());
+        type(By.name("company"), contact.company());
+        type(By.name("home"), contact.homePhone());
+        type(By.name("mobile"), contact.mobilePhone());
+        type(By.name("work"), contact.workPhone());
+        type(By.name("fax"), contact.fax());
+        type(By.name("email"), contact.email());
+        type(By.name("email2"), contact.email2());
+        type(By.name("email3"), contact.email3());
+        type(By.name("homepage"), contact.homepage());
+    }
+
     private void submitContactCreation() {
         click(By.xpath("(//input[@name=\'submit\'])[2]"));
     }
@@ -104,7 +122,7 @@ public class ContactHelper extends HelperBase {
     public void modifyContact(ContactData contact, ContactData modifiedContact) {
         openHomePage();
         editContact(contact);
-        fillContactForm(modifiedContact);
+        fillContactFormWithoutPhoto(modifiedContact);
         submitContactModification();
         openHomePage();
     }

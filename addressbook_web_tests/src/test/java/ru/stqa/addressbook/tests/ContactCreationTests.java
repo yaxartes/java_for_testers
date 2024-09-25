@@ -40,10 +40,10 @@ public class ContactCreationTests extends ru.stqa.addressbook.tests.TestBase {
   @ParameterizedTest
   @MethodSource("contactProvider")
   public void canCreateContact(ContactData contact) {
-    var oldContactList = app.contacts().getList();
+    var oldContactList = app.hbm().getContactList();
     app.contacts().createContact(contact);
 
-    var newContactList = app.contacts().getList();
+    var newContactList = app.hbm().getContactList();
     Comparator<ContactData> compareById = (o1, o2) -> {
       return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
     };

@@ -48,7 +48,8 @@ public class HibernateHelper extends HelperBase {
     }
 
     private static ContactData convert(ContactRecord record) {
-        return new ContactData().withEssentialFields(record.lastName, record.firstName, record.address);
+        return new ContactData().withId("" + record.id)
+                .withEssentialFields(record.lastName, record.firstName, record.address);
     }
 
     private static GroupRecord convert(GroupData data) {
