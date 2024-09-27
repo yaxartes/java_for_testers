@@ -239,4 +239,79 @@ public record ContactData(String id,
                 this.photo,
                 secondaryPhone);
     }
+
+    public ContactData withEmail(String email) {
+        return new ContactData(
+                this.id,
+                this.lastName,
+                this.middleName,
+                this.firstName,
+                this.address,
+                this.nickname,
+                this.title,
+                this.company,
+                this.homePhone,
+                this.mobilePhone,
+                this.workPhone,
+                this.fax,
+                email,
+                this.email2,
+                this.email3,
+                this.homepage,
+                this.birthday,
+                this.anniversary,
+                this.group,
+                this.photo,
+                this.secondaryPhone);
+    }
+
+    public ContactData withEmail2(String email2) {
+        return new ContactData(
+                this.id,
+                this.lastName,
+                this.middleName,
+                this.firstName,
+                this.address,
+                this.nickname,
+                this.title,
+                this.company,
+                this.homePhone,
+                this.mobilePhone,
+                this.workPhone,
+                this.fax,
+                this.email,
+                email2,
+                this.email3,
+                this.homepage,
+                this.birthday,
+                this.anniversary,
+                this.group,
+                this.photo,
+                this.secondaryPhone);
+    }
+
+    public ContactData withEmail3(String email3) {
+        return new ContactData(
+                this.id,
+                this.lastName,
+                this.middleName,
+                this.firstName,
+                this.address,
+                this.nickname,
+                this.title,
+                this.company,
+                this.homePhone,
+                this.mobilePhone,
+                this.workPhone,
+                this.fax,
+                this.email,
+                this.email2,
+                email3,
+                this.homepage,
+                this.birthday,
+                this.anniversary,
+                this.group,
+                this.photo,
+                this.secondaryPhone);
+    }
 }
