@@ -19,10 +19,11 @@ public record ContactData(String id,
                           String birthday,
                           String anniversary,
                           String group,
-                          String photo) {
+                          String photo,
+                          String secondaryPhone) {
 
     public ContactData() {
-        this("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "","", "", "", "");
+        this("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
     }
 
     public ContactData withEssentialFields(String lastName, String firstName, String address) {
@@ -46,7 +47,8 @@ public record ContactData(String id,
                 this.birthday,
                 this.anniversary,
                 this.group,
-                this.photo);
+                this.photo,
+                this.secondaryPhone);
     }
 
     public ContactData withTextFields(String lastName,
@@ -84,7 +86,8 @@ public record ContactData(String id,
                 this.birthday,
                 this.anniversary,
                 this.group,
-                this.photo);
+                this.photo,
+                this.secondaryPhone);
     }
 
     public ContactData withId(String id) {
@@ -108,7 +111,8 @@ public record ContactData(String id,
                 this.birthday,
                 this.anniversary,
                 this.group,
-                this.photo);
+                this.photo,
+                this.secondaryPhone);
     }
 
     public ContactData withPhoto(String photo) {
@@ -132,6 +136,107 @@ public record ContactData(String id,
                 this.birthday,
                 this.anniversary,
                 this.group,
-                photo);
+                photo,
+                this.secondaryPhone);
+    }
+
+    public ContactData withHomePhone(String homePhone) {
+        return new ContactData(
+                this.id,
+                this.lastName,
+                this.middleName,
+                this.firstName,
+                this.address,
+                this.nickname,
+                this.title,
+                this.company,
+                homePhone,
+                this.mobilePhone,
+                this.workPhone,
+                this.fax,
+                this.email,
+                this.email2,
+                this.email3,
+                this.homepage,
+                this.birthday,
+                this.anniversary,
+                this.group,
+                this.photo,
+                this.secondaryPhone);
+    }
+
+    public ContactData withMobilePhone(String mobilePhone) {
+        return new ContactData(
+                this.id,
+                this.lastName,
+                this.middleName,
+                this.firstName,
+                this.address,
+                this.nickname,
+                this.title,
+                this.company,
+                this.homePhone,
+                mobilePhone,
+                this.workPhone,
+                this.fax,
+                this.email,
+                this.email2,
+                this.email3,
+                this.homepage,
+                this.birthday,
+                this.anniversary,
+                this.group,
+                this.photo,
+                this.secondaryPhone);
+    }
+
+    public ContactData withWorkPhone(String workPhone) {
+        return new ContactData(
+                this.id,
+                this.lastName,
+                this.middleName,
+                this.firstName,
+                this.address,
+                this.nickname,
+                this.title,
+                this.company,
+                this.homePhone,
+                this.mobilePhone,
+                workPhone,
+                this.fax,
+                this.email,
+                this.email2,
+                this.email3,
+                this.homepage,
+                this.birthday,
+                this.anniversary,
+                this.group,
+                this.photo,
+                this.secondaryPhone);
+    }
+
+    public ContactData withSecondaryPhone(String secondaryPhone) {
+        return new ContactData(
+                this.id,
+                this.lastName,
+                this.middleName,
+                this.firstName,
+                this.address,
+                this.nickname,
+                this.title,
+                this.company,
+                this.homePhone,
+                this.mobilePhone,
+                this.workPhone,
+                this.fax,
+                this.email,
+                this.email2,
+                this.email3,
+                this.homepage,
+                this.birthday,
+                this.anniversary,
+                this.group,
+                this.photo,
+                secondaryPhone);
     }
 }

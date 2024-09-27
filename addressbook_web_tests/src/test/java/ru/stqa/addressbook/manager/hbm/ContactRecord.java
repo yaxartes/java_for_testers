@@ -42,6 +42,8 @@ public class ContactRecord {
     @Column(name = "work")
     public String workPhone;
 
+    public String phone2;
+
     @Column(name = "fax")
     public String fax;
 
