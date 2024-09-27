@@ -14,6 +14,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Generator {
     @Parameter(names = {"--type", "-t"})
@@ -70,26 +73,21 @@ public class Generator {
         }
     }
 
+    private Object generateData(Supplier<Object> dataSuplier) {
+        return Stream.generate(dataSuplier).limit(3).collect(Collectors.toList());
+    }
+
     private Object generateContacts() {
-        var result = new ArrayList<ContactData>();
-        for (int i = 0; i < count; i++) {
-            result.add(new ContactData().withEssentialFields(
-                    Common.randomString(i * 10),
-                    Common.randomString(i * 10),
-                    Common.randomString(i * 10)
-            ).withPhoto(Common.randomFile("src/test/resources/images")));
-        }
-        return result;
+        return generateData(() -> new ContactData().withEssentialFields(
+                Common.randomString(10),
+                Common.randomString(10),
+                Common.randomString(10)));
     }
 
     private Object generateGroups() {
-        var result = new ArrayList<GroupData>();
-        for (int i = 0; i < count; i++) {
-            result.add(new GroupData()
-                    .withName(Common.randomString(i * 10))
-                    .withHeader(Common.randomString(i * 10))
-                    .withFooter(Common.randomString(i * 10)));
-        }
-        return result;
+        return generateData(() -> new GroupData()
+                .withName(Common.randomString(10))
+                .withHeader(Common.randomString(10))
+                .withFooter(Common.randomString(10)));
     }
 }
