@@ -19,11 +19,10 @@ public record ContactData(String id,
                           String birthday,
                           String anniversary,
                           String group,
-                          String photo,
-                          String secondaryPhone) {
+                          String photo) {
 
     public ContactData() {
-        this("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        this("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
     }
 
     public ContactData withEssentialFields(String lastName, String firstName, String address) {
@@ -47,47 +46,7 @@ public record ContactData(String id,
                 this.birthday,
                 this.anniversary,
                 this.group,
-                this.photo,
-                this.secondaryPhone);
-    }
-
-    public ContactData withTextFields(String lastName,
-                                      String middleName,
-                                      String firstName,
-                                      String address,
-                                      String nickname,
-                                      String title,
-                                      String company,
-                                      String homePhone,
-                                      String mobilePhone,
-                                      String workPhone,
-                                      String fax,
-                                      String email,
-                                      String email2,
-                                      String email3,
-                                      String homepage) {
-        return new ContactData(
-                this.id,
-                lastName,
-                middleName,
-                firstName,
-                address,
-                nickname,
-                title,
-                company,
-                homePhone,
-                mobilePhone,
-                workPhone,
-                fax,
-                email,
-                email2,
-                email3,
-                homepage,
-                this.birthday,
-                this.anniversary,
-                this.group,
-                this.photo,
-                this.secondaryPhone);
+                this.photo);
     }
 
     public ContactData withId(String id) {
@@ -111,8 +70,7 @@ public record ContactData(String id,
                 this.birthday,
                 this.anniversary,
                 this.group,
-                this.photo,
-                this.secondaryPhone);
+                this.photo);
     }
 
     public ContactData withPhoto(String photo) {
@@ -136,8 +94,7 @@ public record ContactData(String id,
                 this.birthday,
                 this.anniversary,
                 this.group,
-                photo,
-                this.secondaryPhone);
+                photo);
     }
 
     public ContactData withHomePhone(String homePhone) {
@@ -161,8 +118,7 @@ public record ContactData(String id,
                 this.birthday,
                 this.anniversary,
                 this.group,
-                this.photo,
-                this.secondaryPhone);
+                this.photo);
     }
 
     public ContactData withMobilePhone(String mobilePhone) {
@@ -186,8 +142,7 @@ public record ContactData(String id,
                 this.birthday,
                 this.anniversary,
                 this.group,
-                this.photo,
-                this.secondaryPhone);
+                this.photo);
     }
 
     public ContactData withWorkPhone(String workPhone) {
@@ -211,33 +166,7 @@ public record ContactData(String id,
                 this.birthday,
                 this.anniversary,
                 this.group,
-                this.photo,
-                this.secondaryPhone);
-    }
-
-    public ContactData withSecondaryPhone(String secondaryPhone) {
-        return new ContactData(
-                this.id,
-                this.lastName,
-                this.middleName,
-                this.firstName,
-                this.address,
-                this.nickname,
-                this.title,
-                this.company,
-                this.homePhone,
-                this.mobilePhone,
-                this.workPhone,
-                this.fax,
-                this.email,
-                this.email2,
-                this.email3,
-                this.homepage,
-                this.birthday,
-                this.anniversary,
-                this.group,
-                this.photo,
-                secondaryPhone);
+                this.photo);
     }
 
     public ContactData withEmail(String email) {
@@ -261,8 +190,7 @@ public record ContactData(String id,
                 this.birthday,
                 this.anniversary,
                 this.group,
-                this.photo,
-                this.secondaryPhone);
+                this.photo);
     }
 
     public ContactData withEmail2(String email2) {
@@ -286,8 +214,7 @@ public record ContactData(String id,
                 this.birthday,
                 this.anniversary,
                 this.group,
-                this.photo,
-                this.secondaryPhone);
+                this.photo);
     }
 
     public ContactData withEmail3(String email3) {
@@ -311,7 +238,6 @@ public record ContactData(String id,
                 this.birthday,
                 this.anniversary,
                 this.group,
-                this.photo,
-                this.secondaryPhone);
+                this.photo);
     }
 }

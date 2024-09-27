@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 public class ContactCreationTests extends ru.stqa.addressbook.tests.TestBase {
 
@@ -44,16 +45,12 @@ public class ContactCreationTests extends ru.stqa.addressbook.tests.TestBase {
     app.contacts().createContact(contact);
 
     var newContactList = app.hbm().getContactList();
-    Comparator<ContactData> compareById = (o1, o2) -> {
-      return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
-    };
-    newContactList.sort(compareById);
-
+    var extraContacts = newContactList.stream().filter(c -> ! oldContactList.contains(c)).toList();
+    var newId = extraContacts.get(0).id();
     var expectedContactList = new ArrayList<>(oldContactList);
-    expectedContactList.add(contact.withId(newContactList.get(newContactList.size() - 1).id()).withPhoto(""));
-    expectedContactList.sort(compareById);
+    expectedContactList.add(contact.withId(newId).withPhoto(""));
 
-    Assertions.assertEquals(newContactList, expectedContactList);
+    Assertions.assertEquals(Set.copyOf(newContactList), Set.copyOf(expectedContactList));
   }
 
   @Test
