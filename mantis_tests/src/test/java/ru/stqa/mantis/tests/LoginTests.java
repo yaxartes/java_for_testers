@@ -3,11 +3,13 @@ package ru.stqa.mantis.tests;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 public class LoginTests extends TestBase {
 
     @Test
     void canLogin() {
-        app.session().login("administrator", "root");
-        Assertions.assertTrue(app.session().IsLoggedIn());
+        app.http().login("administrator", "root");
+        Assertions.assertTrue(app.http().IsLoggedIn());
     }
 }
