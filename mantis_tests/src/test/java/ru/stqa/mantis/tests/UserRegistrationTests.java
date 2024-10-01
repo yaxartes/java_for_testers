@@ -14,7 +14,8 @@ public class UserRegistrationTests extends TestBase {
         User newUser = new User().withName(Common.randomString(7))
                 .withEmail(String.format("%s@localhost", Common.randomString(6)))
                 .withPassword("password");
-        app.jamesCli().addUser(newUser.email(), newUser.password());
+        app.jamesApi().addUser(newUser.email(), newUser.password());
+        //app.jamesCli().addUser(newUser.email(), newUser.password());
 
         //создать пользователя mantis
         app.session().login(app.property("web.usernameAdmin"), app.property("web.passwordAdmin"));
