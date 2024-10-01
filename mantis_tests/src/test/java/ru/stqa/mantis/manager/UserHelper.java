@@ -9,6 +9,9 @@ public class UserHelper extends HelperBase {
     }
 
     public void createUser(User user) {
+        if(!manager.session().IsLoggedIn()) {
+            manager.session().login(manager.property("web.usernameAdmin"), manager.property("web.passwordAdmin"));
+        }
         openManageUsersPage();
         initNewUserCreation();
         fillUserCreationForm(user);
