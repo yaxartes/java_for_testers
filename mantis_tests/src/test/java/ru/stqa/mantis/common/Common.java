@@ -4,6 +4,7 @@ import java.io.File;
 import java.nio.file.Paths;
 import java.util.Random;
 import java.util.function.Supplier;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -34,7 +35,18 @@ public class Common {
     public static String randomFile(String dir) {
         var fileNames = new File(dir).list();
         var rnd = new Random();
+        assert fileNames != null;
         var index = rnd.nextInt(fileNames.length);
         return Paths.get(dir, fileNames[index]).toString();
+    }
+
+    public static String extractUrlFromText(String text) {
+        var pattern = Pattern.compile("http://\\S*");
+        var matcher = pattern.matcher(text);
+        var url = "";
+        if (matcher.find()) {
+            url = text.substring(matcher.start(), matcher.end());
+        }
+        return url;
     }
 }

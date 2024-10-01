@@ -8,8 +8,8 @@ public class SessionHelper extends HelperBase {
         super(manager);
     }
 
-    public void login(String user, String password) {
-        type(By.name("username"), user);
+    public void login(String username, String password) {
+        type(By.name("username"), username);
         click(By.cssSelector("input[type='submit']"));
         type(By.name("password"), password);
         click(By.cssSelector("input[type='submit']"));
@@ -17,5 +17,9 @@ public class SessionHelper extends HelperBase {
 
     public boolean IsLoggedIn() {
         return isElementPresent(By.cssSelector("span.user-info"));
+    }
+
+    public void confirmRegistration(String url) {
+        manager.driver().get(url);
     }
 }

@@ -22,6 +22,8 @@ public class ApplicationManager {
 
     private MailHelper mailHelper;
 
+    private UserHelper users;
+
     public void init(String browser, Properties properties) {
         this.browser = browser;
         this.properties = properties;
@@ -70,6 +72,13 @@ public class ApplicationManager {
             mailHelper = new MailHelper(this);
         }
         return mailHelper;
+    }
+
+    public UserHelper users() {
+        if (users == null) {
+            users = new UserHelper(this);
+        }
+        return users;
     }
 
     public String property(String name) {

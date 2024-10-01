@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 
 import java.nio.file.Paths;
-import java.util.concurrent.TimeUnit;
 
 public class HelperBase {
     protected final ApplicationManager manager;
@@ -21,10 +20,6 @@ public class HelperBase {
         click(locator);
         manager.driver().findElement(locator).clear();
         manager.driver().findElement(locator).sendKeys(text);
-    }
-
-    protected void timeout(Integer sec) {
-        manager.driver().manage().timeouts().implicitlyWait(sec, TimeUnit.SECONDS);
     }
 
     protected boolean isElementPresent(By locator) {
