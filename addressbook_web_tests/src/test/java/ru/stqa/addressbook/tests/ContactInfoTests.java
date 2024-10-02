@@ -13,7 +13,7 @@ public class ContactInfoTests extends TestBase{
         var contacts = app.hbm().getContactList();
         var expected = contacts.stream().collect(Collectors.toMap(ContactData::id, contact ->
             Stream.of(contact.homePhone(), contact.mobilePhone(), contact.workPhone())
-                    .filter(p -> p != null && !p.isEmpty())
+                    .filter(p -> p != null && ! p.isEmpty())
                     .collect(Collectors.joining("\n"))
         ));
         var phones = app.contacts().getPhones();
