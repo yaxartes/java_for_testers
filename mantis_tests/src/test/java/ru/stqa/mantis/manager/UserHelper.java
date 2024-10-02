@@ -1,16 +1,18 @@
 package ru.stqa.mantis.manager;
 
 import org.openqa.selenium.By;
-import ru.stqa.mantis.model.User;
+import ru.stqa.mantis.model.UserData;
 
 public class UserHelper extends HelperBase {
     public UserHelper(ApplicationManager manager) {
         super(manager);
     }
 
-    public void createUser(User user) {
+    public void createUser(UserData user) {
         if(!manager.session().IsLoggedIn()) {
-            manager.session().login(manager.property("web.usernameAdmin"), manager.property("web.passwordAdmin"));
+            manager.session().login(
+                    manager.property("web.usernameAdmin"),
+                    manager.property("web.passwordAdmin"));
         }
         openManageUsersPage();
         initNewUserCreation();
@@ -18,7 +20,7 @@ public class UserHelper extends HelperBase {
         submitUserCreation();
     }
 
-    public void setPassword(User user) {
+    public void setPassword(UserData user) {
         type(By.name("password"), user.password());
         type(By.name("password_confirm"), user.password());
         click(By.cssSelector("button[type='submit']"));
@@ -28,7 +30,7 @@ public class UserHelper extends HelperBase {
         click(By.cssSelector("input[type='submit']"));
     }
 
-    private void fillUserCreationForm(User user) {
+    private void fillUserCreationForm(UserData user) {
         type(By.name("username"), user.name());
         type(By.name("realname"), user.name());
         type(By.name("email"), user.email());

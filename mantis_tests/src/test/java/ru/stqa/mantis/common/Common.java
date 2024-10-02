@@ -47,6 +47,7 @@ public class Common {
         if (matcher.find()) {
             url = text.substring(matcher.start(), matcher.end());
         }
+        System.out.println(url);
         return url;
     }
 }

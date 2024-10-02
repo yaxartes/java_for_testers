@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ru.stqa.mantis.common.Common;
 import ru.stqa.mantis.model.DeveloperMailUser;
-import ru.stqa.mantis.model.User;
+import ru.stqa.mantis.model.UserData;
 
 import java.time.Duration;
 
@@ -16,7 +16,7 @@ public class UserCreationTests extends TestBase {
     void canCreateNewUser() {
         mailUser = app.developerMail().addUser();
         var email = String.format("%s@developermail.com", mailUser.name());
-        User newUser = new User().withName(mailUser.name())
+        UserData newUser = new UserData().withName(mailUser.name())
                 .withEmail(email)
                 .withPassword("password");
         app.users().createUser(newUser);
