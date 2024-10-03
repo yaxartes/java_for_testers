@@ -25,5 +25,4 @@ public class TestBase {
     void checkDataBaseConcistency() {
         app.jdbc().checkConcistency();
     }
-
 }

@@ -1,11 +1,10 @@
 package ru.stqa.addressbook.manager;
 
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import ru.stqa.addressbook.model.GroupData;
-import org.openqa.selenium.By;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

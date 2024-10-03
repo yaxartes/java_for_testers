@@ -47,6 +47,4 @@ public class SoapApiHelper extends HelperBase {
             throw new RuntimeException(e);
         }
     }
-
-
 }

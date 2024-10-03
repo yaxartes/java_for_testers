@@ -30,7 +30,6 @@ public class ApplicationManager {
 
     public void init(String browser, Properties properties) throws MalformedURLException {
         this.properties = properties;
-
         var seleniumServer = properties.getProperty("seleniumServer");
         if (driver == null) {
             if ("chrome".equals(browser)) {

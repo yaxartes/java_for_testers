@@ -9,7 +9,6 @@ import ru.stqa.addressbook.manager.hbm.GroupRecord;
 import ru.stqa.addressbook.model.ContactData;
 import ru.stqa.addressbook.model.GroupData;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
